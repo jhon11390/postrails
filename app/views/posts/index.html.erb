@@ -7,8 +7,10 @@
           <div class="card-body">
           <p class="card-text text-muted"><%= post.created_at %></p>
             <p class="card-text"><%= truncate(post.body, :length => 250) %></p>
-            <%= link_to 'Editar', edit_post_path(post.id), class: "btn btn-primary" %>
-            <%= link_to 'Eliminar', post, method: :delete, class: "btn btn-primary" %>
+            <% if signed_in? %>
+              <%= link_to 'Editar', edit_post_path(post.id), class: "btn btn-primary" %>
+              <%= link_to 'Eliminar', post, method: :delete, class: "btn btn-primary" %>
+            <% end %>
           </div>
         </div>
       <% end %>
