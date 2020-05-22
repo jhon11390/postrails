@@ -1,6 +1,11 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col">
+      <%= link_to 'Volver', posts_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
       <div class="jumbotron">
         <h1 class="display-4 text-primary"><%= @post.title %></h1>
         <p class="lead"><%= @post.body %></p>
