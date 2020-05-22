@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% @posts.each do |post|%>
+        <div class="card mt-4">
+          <h5 class="card-header display-4"><%= link_to post.title, show_path(post.id) %></h5>
+          <div class="card-body">
+          <p class="card-text text-muted"><%= post.created_at %></p>
+            <p class="card-text"><%= post.body %></p>
+            <a href="#" class="btn btn-primary">Editar</a>
+            <a href="#" class="btn btn-primary">Eliminar</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
