@@ -18,15 +18,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Ingresar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Registrarse</a>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Nuevo Post', new_post_path, class: "nav-link" %>
-            </li>
+            <% if signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Nuevo Post', new_post_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Salir', destroy_user_session_path, class: "nav-link" %>
+              </li>
+            <% else %> 
+              <li class="nav-item">
+                <%= link_to 'Ingresar', new_user_session_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Registrarse', new_user_registration_path, class: "nav-link" %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>
