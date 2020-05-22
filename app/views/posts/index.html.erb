@@ -7,8 +7,8 @@
           <div class="card-body">
           <p class="card-text text-muted"><%= post.created_at %></p>
             <p class="card-text"><%= post.body %></p>
-            <%= link_to 'Editar', edit_post_path(post.id) %>
-            <a href="#" class="btn btn-primary">Eliminar</a>
+            <%= link_to 'Editar', edit_post_path(post.id), class: "btn btn-primary" %>
+            <%= link_to 'Eliminar', post, method: :delete, class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>
