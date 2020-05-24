@@ -7,7 +7,7 @@
           <div class="card-body">
           <p class="card-text text-muted">Publicado por <%= post.user.email %> hace </p>
             <p class="card-text"><%= truncate(post.body, :length => 250) %></p>
-            <% if signed_in? %>
+            <% if signed_in? && post.user == current_user %>
               <%= link_to 'Editar', edit_post_path(post.id), class: "btn btn-primary" %>
               <%= link_to 'Eliminar', post, method: :delete, class: "btn btn-primary" %>
             <% end %>
