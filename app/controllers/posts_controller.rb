@@ -18,7 +18,7 @@ class PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.user = current_user
         if @post.save
-            redirect_to :posts
+            redirect_to :posts, notice: "El post fue publicado con éxito"
         else
             render :new
         end
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         @post.destroy
 
-        redirect_to :posts
+        redirect_to :posts, notice: "El post ha sido eliminado con éxito"
     end
     private
         def post_params
