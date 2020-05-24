@@ -7,13 +7,13 @@
   <div class="row">
     <div class="col">
       <div class="jumbotron">
-        <p class="card-text text-muted">Publicado por <%= @post.user.email %></p>
+        <p class="card-text text-muted">Publicado por <%= @post.user.email %> hace <%= time_ago_in_words(@post.created_at)%></p>
         <h1 class="display-4 text-primary"><%= @post.title %></h1>
         <p class="lead"><%= @post.body %></p>
         <hr class="my-4">
         <% if signed_in? && @post.user == current_user%>
           <%= link_to 'Editar', edit_post_path(@post.id), class: "btn btn-primary" %>
-          <%= link_to 'Eliminar', @post, method: :delete, class: "btn btn-primary" %>
+          <%= link_to 'Eliminar', @post, method: :delete, class: "btn btn-primary", :data => {:confirm => "Esta seguro de eliminar este Post?"} %>
         <% end %>
       </div>
     </div>
