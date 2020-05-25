@@ -41,6 +41,9 @@
      <% if flash[:notice] %>
       <div class="alert alert-info"><%= flash[:notice] %></div>
     <% end %>
+     <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     
     <% if signed_in? %>
       <div class="container">

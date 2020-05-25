@@ -70,6 +70,16 @@ es:
       signed_in: "Has iniciado sesion con exito!."
       signed_out: "Has cerrado sesion con exito!."
       already_signed_out: "Cerro sesion con exito!."
+    failure:
+      already_authenticated: "You are already signed in."
+      inactive: "Your account is not activated yet."
+      invalid: "La contraseña es invalida."
+      locked: "Your account is locked."
+      last_attempt: "You have one more attempt before your account is locked."
+      not_found_in_database: "El %{authentication_keys} no existe en la base de datos de usuarios."
+      timeout: "Your session expired. Please sign in again to continue."
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your email address before continuing."
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"
