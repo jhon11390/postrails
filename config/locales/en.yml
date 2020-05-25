@@ -32,3 +32,9 @@
 en:
   hello: "Hello world"
 
+es:
+  activerecord:
+    attributes:
+      post:
+        title: "Titulo"
+        body: "Cuerpo"

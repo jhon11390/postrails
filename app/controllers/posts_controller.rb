@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
 
     def index
-        @posts = Post.all
+        @posts = Post.all.order(:created_at)
     end
     
     def show
@@ -26,7 +26,12 @@ class PostsController < ApplicationController
 
     def edit
         @post = Post.find(params[:id])
-        @titleform = "Editar Post"
+        if @post.user == current_user
+            @post = Post.find(params[:id])
+            @titleform = "Editar Post"
+        else
+            redirect_to :posts
+        end
     end 
 
     def update
@@ -42,7 +47,7 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         @post.destroy
 
-        redirect_to :posts, notice: "El post ha sido eliminado con éxito"
+        redirect_to :posts, notice: "El post fue publicado con éxito"
     end
     private
         def post_params

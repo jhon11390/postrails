@@ -63,3 +63,20 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+    
+es:
+  devise:
+    sessions:
+      signed_in: "Has iniciado sesion con exito!."
+      signed_out: "Has cerrado sesion con exito!."
+      already_signed_out: "Cerro sesion con exito!."
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibio que pudiera registrarse:"
+        other: "%{count} errores prohibieron que pudiera registrarse:"

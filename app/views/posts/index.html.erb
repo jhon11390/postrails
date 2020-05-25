@@ -3,10 +3,10 @@
     <div class="col">
       <% @posts.each do |post|%>
         <div class="card mt-4">
-          <h5 class="card-header display-4"><%= link_to post.title, post_path(post.id) %></h5>
+          <h5 class="card-header display-4"><%= link_to post.title.capitalize, post_path(post.id) %></h5>
           <div class="card-body">
           <p class="card-text text-muted">Publicado por <%= post.user.email %> hace <%= time_ago_in_words(post.created_at)%></p>
-            <p class="card-text"><%= markdown(post.body) %></p>
+            <p class="card-text"><%= markdown(truncate(post.body, :length => 250).capitalize) %></p>
             <% if signed_in? && post.user == current_user %>
               <%= link_to 'Editar', edit_post_path(post.id), class: "btn btn-primary" %>
               <%= link_to 'Eliminar', post, method: :delete, class: "btn btn-primary", :data => {:confirm => "Esta seguro de eliminar este Post?"}%>
