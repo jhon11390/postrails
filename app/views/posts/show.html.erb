@@ -9,7 +9,7 @@
       <div class="jumbotron">
         <p class="card-text text-muted">Publicado por <%= @post.user.email %> hace <%= time_ago_in_words(@post.created_at)%></p>
         <h1 class="display-4 text-primary"><%= @post.title.capitalize %></h1>
-        <p class="lead"><%= @post.body.capitalize %></p>
+        <p class="lead"><%= markdown(@post.body.capitalize) %></p>
         <hr class="my-4">
         <% if signed_in? && @post.user == current_user%>
           <%= link_to 'Editar', edit_post_path(@post.id), class: "btn btn-primary" %>

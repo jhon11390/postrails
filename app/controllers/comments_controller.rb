@@ -3,7 +3,11 @@ class CommentsController < ApplicationController
         post = Post.find(params[:post_id])
         post.comments.create(comments_params)
 
-        redirect_to post, notice: "El comentario fue publicado con éxito"
+        redirect_to post
+
+        unless post.save
+            flash[:alert] = "El comentario no puede estar vacio"
+        end
     end
 
     private
